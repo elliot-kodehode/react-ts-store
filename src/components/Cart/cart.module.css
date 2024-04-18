@@ -1,0 +1,40 @@
+
+.showCart {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 30%;
+    background-color: rgb(74, 74, 74);
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 0 0 10px 10px;
+}
+.hideCart {
+    display: none;
+}
+
+.header {
+    color: white;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 12px 5px;
+    gap: 8px;
+    border-radius: 6px;
+}
+
+.cartInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.totalPrice {
+    color: white;
+    padding: 12px 2px;
+}

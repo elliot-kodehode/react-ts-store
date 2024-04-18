@@ -1,0 +1,50 @@
+
+.Navbar {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 46px;
+    gap: 60px;
+    height: 64px;
+    background-color: rgb(74, 74, 74);
+    color: white;
+    z-index: 2;
+}
+
+.leftNav {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.Links {
+    display: flex;
+    gap: 12px;
+    /* padding: 12px; */
+    color: white;
+    text-decoration: none;
+}
+
+.Link {
+    all: unset;
+    cursor: pointer;
+    color: white;
+    padding: 6px 12px;
+
+}
+
+.Link:hover {
+    color: rgb(122, 255, 122);
+}
+
+.Link:active {
+    color: green;
+}
+
+.cart {
+    all: unset;
+    cursor: pointer;
+    color: white;
+}
