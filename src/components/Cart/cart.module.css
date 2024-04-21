@@ -6,33 +6,62 @@
     position: absolute;
     right: 0;
     top: 0;
-    max-width: 30%;
-    background-color: rgb(74, 74, 74);
-    gap: 6px;
-    padding: 4px 10px;
-    border-radius: 0 0 10px 10px;
+    min-width: 350px;
+    max-width: 30vw;
+    background-color: #4c814c;
+    padding: 20px 20px;
+    /*border-radius: 0 0 10px 10px;*/
+    max-height: calc(100vh - 64px);
+    z-index: 2;
+    transform: translateX(-100%);
+    animation: slide 200ms ease forwards;
 }
+
+
+@keyframes slide {
+    from {transform: translateX(100%); }
+    to {transform: translateX(0)}
+}
+
 .hideCart {
     display: none;
 }
 
 .header {
-    color: white;
-}
-
-.product {
     display: flex;
-    align-items: center;
-    background-color: white;
-    padding: 12px 5px;
-    gap: 8px;
-    border-radius: 6px;
+    color: white;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    width: 100%;
+}
+.clearCart {
+    border: none;
+    border-radius: 4px;
+    background-color: #ea3f3f;
+    font-weight: 600;
+    color: white;
+    padding: 2px 10px;
+    cursor: pointer;
+    width: fit-content; 
 }
 
-.cartInfo {
+.clearCart:hover {
+    transform: translateY(-1px);
+    background-color: #f85757;
+}
+
+.cartItems {
     display: flex;
     flex-direction: column;
+    /*background-color: white;*/
+    border-radius: 10px;
+    gap: 1px;
+    padding: 2px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-color: white transparent;
 }
+
 
 .totalPrice {
     color: white;

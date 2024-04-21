@@ -8,10 +8,16 @@ export interface Product {
     rating: {
         rate: number;
         count: number; };
+    quantity: number;
 }
 
 export interface ContextType {
     products: Product[];
     addToCart: (product: Product) => void;
+    clearCart: () => void;
+    incrementAmount: (product: Product) => void;
+    decrementAmount: (product: Product) => void;
     cart: Product[]
+    error: boolean, 
+    loading: boolean, 
 }

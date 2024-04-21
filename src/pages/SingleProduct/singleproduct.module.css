@@ -1,20 +1,22 @@
 
-.SingleProduct {
+.singleProduct {
     display: flex;
     margin-top: 106px;
     justify-content: center;
     align-items: center;
     background-color: white;
     height: 80vh;
+    min-height: fit-content;
     border-radius: 10px;
     gap: 100px;
-    width: 70%;
-    min-width: fit-content;
+    max-width: 80vw;
+    width: fit-content;
 
 }
 
 
 .productImg {
+    height: 70%;
     max-width: 500px;
     max-height: 600px;
     object-fit: contain;
@@ -106,6 +108,8 @@
         display: flex;
         height: fit-content;
         flex-direction: column;
+        padding: 20px 0;
+        max-width: 95vw;
     }
     .productImg {
         max-width: 300px;

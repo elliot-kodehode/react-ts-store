@@ -1,0 +1,22 @@
+﻿.product {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 12px 5px;
+    gap: 12px;
+    min-width: 350px;
+    border-radius: 6px;
+}
+
+.productName {
+    color: #1c1c1c;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cartInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}

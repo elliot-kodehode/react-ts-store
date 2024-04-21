@@ -1,0 +1,24 @@
+﻿.amountPicker {
+    display: flex;
+    min-width: fit-content;
+    height: 30px;
+    background-color: #f3f3f3;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.amount {
+    width: 26px;
+    font-size: 22px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+}
+
+button {
+    border: none;
+    padding: 0 6px;
+    background-color: wheat;
+    font-size: 22px;
+    width: 26px;
+}

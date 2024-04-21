@@ -5,6 +5,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 #root {
   display: flex;
   flex-direction: column;

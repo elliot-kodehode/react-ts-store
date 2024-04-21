@@ -1,16 +1,24 @@
 
 .Navbar {
     display: flex;
-    position: absolute;
-    width: 100%;
+    width: 100vw;
     justify-content: space-between;
     align-items: center;
     padding: 10px 46px;
     gap: 60px;
     height: 64px;
-    background-color: rgb(74, 74, 74);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(241, 241, 241);
     z-index: 2;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    border: 3px solid #4c814c;
+    color: #4c814c;
 }
 
 .leftNav {
@@ -23,28 +31,38 @@
     display: flex;
     gap: 12px;
     /* padding: 12px; */
-    color: white;
+    color: #2e2e2e;
     text-decoration: none;
 }
 
 .Link {
     all: unset;
     cursor: pointer;
-    color: white;
+    color: #2e2e2e;
     padding: 6px 12px;
+    font-weight: 600;
 
 }
 
 .Link:hover {
-    color: rgb(122, 255, 122);
+    color: #4c814c;
 }
 
 .Link:active {
     color: green;
 }
 
-.cart {
+.openCart {
     all: unset;
     cursor: pointer;
-    color: white;
+    color: #303030;
+    font-weight: 600;
+}
+
+.closeCart{
+    all: unset;
+    cursor: pointer;
+    color: #4c814c;
+    font-size: 28px;
+    font-weight: 600;
 }

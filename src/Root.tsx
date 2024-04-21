@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/NavBar/NavBar.tsx";
 import {createContext, useEffect, useState} from "react";
 import {Product, ContextType} from "./types/types.ts";
@@ -11,7 +11,12 @@ import axios from "axios";
 const PageContext = createContext<ContextType>({
     products: [],
     addToCart: () => {},
-    cart: []
+    clearCart: () => {},
+    incrementAmount: () => {},
+    decrementAmount: () => {},
+    cart: [],
+    error: false,
+    loading: false,
 });
 
 export default function Root() {
@@ -20,7 +25,7 @@ export default function Root() {
     const [error, setError] = useState(false);
     const [displayCart, setDisplayCart] = useState<boolean>(false);
     const [cart, setCart] = useState<Product[]>(JSON.parse(localStorage.getItem("storedCart") || "[]"));
-
+    
     useEffect(() => {
 
         const fetchData = async () => {
@@ -29,7 +34,9 @@ export default function Root() {
                 setLoading(true)
                 const response = await axios("https://fakestoreapi.com/products");
                 const data = await response.data;
-                setProducts(data);
+                const updatedData = data?.map(p => ({...p, quantity: 0}))
+                setProducts(updatedData);
+                console.log(updatedData)
                 setLoading(false)
 
             } catch (error) {
@@ -38,30 +45,68 @@ export default function Root() {
         }
         fetchData()
     }, [])
-
+    
     const addToCart = (product: Product) => {
-        // Checks if the product id matches an id already in the cart (Need to change this so it adds switches to x2 of product or something)
-        cart.some(newProduct => newProduct.id === product.id)
-            ? console.log("Product already added.")
-            : setCart(prevCart => [...prevCart, product]);
+        const productId = cart.some(newProduct => newProduct.id === product.id);
+            productId 
+                ? incrementAmount(product)
+                : setCart(prevCart => [...prevCart, { ...product, quantity: 1 }]);
     };
+    
+    const incrementAmount = (product: Product) => {
+        setCart(prevCart => prevCart.map(e => (
+                e.id === product.id 
+                    ? { ...e, quantity: e.quantity + 1 } 
+                    : e
+        )))
+    }
+    
+    const decrementAmount = (product: Product) => {
+        // 
+        setCart(prevCart => prevCart.map(e => (
+            e.id === product.id
+                ? { ...e, quantity: e.quantity - 1 }
+                : e
+        )))
+        
+        setCart(prevCart =>
+                product.quantity <= 1 
+                    ? prevCart.filter(p => p.id !== product.id) 
+                    : prevCart
+            );
+    }
+    
+    const clearCart = () => {
+        localStorage.clear();
+        setCart([])
+    }
 
     useEffect(() => {
         localStorage.setItem("storedCart", JSON.stringify(cart));
     }, [cart]);
 
     const toggleCart = () => {
+        
         setDisplayCart(!displayCart);
     }
 
-    if (error) return <NotFoundPage />
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setDisplayCart(false)
+        }, [location]);
+
+
+        if (error) return <NotFoundPage />
     if (loading) return <Loader />
 
     return (
-        <PageContext.Provider value={{ products, addToCart, cart }}>
-            <Navbar toggleCart={toggleCart} />
+        <PageContext.Provider value={{ products, addToCart, cart, clearCart, error, loading, incrementAmount, decrementAmount }}>
+            <Navbar toggleCart={toggleCart} displayCart={displayCart}/>
+            {/*<HeaderInfo />*/}
             <Outlet />
-            <Cart displayCart={displayCart} />
+            {displayCart && <Cart />}
         </PageContext.Provider>
     )
 }
