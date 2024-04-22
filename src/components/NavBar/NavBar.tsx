@@ -14,11 +14,12 @@ export default function Navbar (props : Props) {
         <div className={styles.Navbar}>
 
             <div className={styles.leftNav}>
-                <div className={styles.logo}>
-                <h3>Estore.</h3>
-                </div>
+                <NavLink to={"/"} className={styles.Link}>
+                    <div className={styles.logo}>
+                        <h3>Estore.</h3>
+                    </div>
+                </NavLink>
                 <nav className={styles.Links}>
-                    <NavLink to={"/"} className={styles.Link}>Home</NavLink>
                     <NavLink to={"/products"} className={styles.Link}>Products</NavLink>
                 </nav>
             </div>

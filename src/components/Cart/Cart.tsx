@@ -5,7 +5,7 @@ import CartProduct from "./CartProduct/CartProduct.tsx";
 
 export default function Cart() {
     const [totalPrice, setPrice] = useState<number>(0);
-    const { cart, clearCart } = useContext(PageContext)!;
+    const { cart, clearCart, toggleCart } = useContext(PageContext)!;
 
     useEffect(() => {
         let totalPrice = 0;
@@ -19,20 +19,33 @@ export default function Cart() {
         clearCart()
     }
     
+    const handleDisplay = () => {
+        toggleCart()
+    }
 
     return (
         <div className={ styles.showCart }>
             <div className={styles.header}>
-            <h2 className={styles.title}>Your Cart:</h2>
-            <button className={styles.clearCart} onClick={handleClear}>Clear Cart</button>
+                <h3>Items in your cart</h3>
+                <button className={styles.clearCart} onClick={handleClear}>Empty Cart</button>
             </div>
-            
+            <hr/>
             <div className={styles.cartItems}>
-            {cart && cart.map((cartProduct) => (
+                {cart && cart.map((cartProduct) => (
                     <CartProduct cartProduct={cartProduct}></CartProduct>
             ))}
+                {cart.length === 0 && <p>Cart is empty, add some products!</p>}
             </div>
-            <h3 className={styles.totalPrice}>Total price: {totalPrice}€</h3>
+            <hr/>
+            <div className={styles.price}>
+                <h4 className={styles.totalPrice}>Total price</h4>
+                <h4>{totalPrice}€</h4>
+            </div>
+            <p className={styles.shipping}>Shipping will be calculated at checkout.</p>
+            <div className={styles.cartActions}>
+                <button className={styles.checkout} onClick={handleClear}>Checkout</button>
+                <button className={styles.clearCart} onClick={handleDisplay}>Continue shopping</button>
+            </div>
         </div>
     )
 }

@@ -53,9 +53,6 @@
     font-weight: bold;
 }
 
-.category:hover {
-    color: crimson;
-}
 
 .favouriteBtn {
     all: unset;

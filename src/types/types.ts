@@ -15,6 +15,7 @@ export interface ContextType {
     products: Product[];
     addToCart: (product: Product) => void;
     clearCart: () => void;
+    toggleCart: () => void;
     incrementAmount: (product: Product) => void;
     decrementAmount: (product: Product) => void;
     cart: Product[]

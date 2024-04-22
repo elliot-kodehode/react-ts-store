@@ -24,12 +24,12 @@
 .leftNav {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 20px;
 }
 
 .Links {
     display: flex;
-    gap: 12px;
+    /*gap: 12px;*/
     /* padding: 12px; */
     color: #2e2e2e;
     text-decoration: none;
@@ -39,7 +39,7 @@
     all: unset;
     cursor: pointer;
     color: #2e2e2e;
-    padding: 6px 12px;
+    /*padding: 6px 12px;*/
     font-weight: 600;
 
 }
@@ -62,7 +62,15 @@
 .closeCart{
     all: unset;
     cursor: pointer;
-    color: #4c814c;
+    color: #303030;
     font-size: 28px;
     font-weight: 600;
+}
+
+@media only screen and (max-width: 500px) {
+    .Navbar {
+    width: 100vw;
+    justify-content: space-between;
+    padding: 18px;
+    }
 }

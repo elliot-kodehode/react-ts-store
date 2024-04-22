@@ -37,8 +37,7 @@ export const ProductCard = (props: Props) => {
                 <HalfRating rate={props.product.rating.rate}/>
                 <p style={{textDecoration: "underline"}}>{props.product.rating.count} reviews</p>
             </div>
-            <Link to={`./${props.product.category.replace(" ", "-").replace("'", "")}`}
-                  className={styles.category}>{props.product.category}</Link>
+            <h5 className={styles.category}>{props.product.category}</h5>
             <h2>{props.product.price + " €"}</h2>
             <button className={styles.cartBtn} onClick={handleAddToCart}>Add to Cart</button>
         </div>

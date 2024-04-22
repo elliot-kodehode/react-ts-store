@@ -9,7 +9,7 @@
 }
 
 .productName {
-    color: #1c1c1c;
+    color: #656565;
     text-decoration: none;
     cursor: pointer;
     font-weight: 600;
@@ -18,5 +18,5 @@
 .cartInfo {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
 }

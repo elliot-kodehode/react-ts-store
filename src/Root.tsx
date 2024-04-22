@@ -10,6 +10,7 @@ import axios from "axios";
 
 const PageContext = createContext<ContextType>({
     products: [],
+    toggleCart: () => {},
     addToCart: () => {},
     clearCart: () => {},
     incrementAmount: () => {},
@@ -55,7 +56,7 @@ export default function Root() {
     
     const incrementAmount = (product: Product) => {
         setCart(prevCart => prevCart.map(e => (
-                e.id === product.id 
+                e.id === product.id && e.quantity < 99
                     ? { ...e, quantity: e.quantity + 1 } 
                     : e
         )))
@@ -102,7 +103,7 @@ export default function Root() {
     if (loading) return <Loader />
 
     return (
-        <PageContext.Provider value={{ products, addToCart, cart, clearCart, error, loading, incrementAmount, decrementAmount }}>
+        <PageContext.Provider value={{ products, addToCart, cart, clearCart, error, loading, incrementAmount, decrementAmount, toggleCart }}>
             <Navbar toggleCart={toggleCart} displayCart={displayCart}/>
             {/*<HeaderInfo />*/}
             <Outlet />

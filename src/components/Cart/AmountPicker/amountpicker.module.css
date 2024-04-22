@@ -17,8 +17,9 @@
 
 button {
     border: none;
-    padding: 0 6px;
-    background-color: wheat;
+    padding: 0 4px;
+    background-color: #424242;
+    color: white;
     font-size: 22px;
-    width: 26px;
+    width: 20px;
 }

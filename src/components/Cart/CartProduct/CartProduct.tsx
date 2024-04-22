@@ -12,15 +12,19 @@ const cartProduct = (props : Props) => {
     <div key={props.cartProduct.id} className={styles.product}>
         <AmountPicker cartProduct={props.cartProduct} />
         <img src={props.cartProduct.image} alt={props.cartProduct.title} style={{
-            width: 50,
+            width: 50, height: 50, objectFit: "contain"
         }}/>
         <div className={styles.cartInfo}>
             <Link className={styles.productName} to={`./products/${props.cartProduct.id}`}>{
-                props.cartProduct.title.length > 30 
-                    ? (props.cartProduct.title.slice(0, 30) + "...") 
+                props.cartProduct.title.length > 26 
+                    ? (props.cartProduct.title.slice(0, 26) + "...") 
                     : props.cartProduct.title
             }</Link>
-            <h4>{props.cartProduct.price}€</h4>
+            <h4><span style={{
+                // color: "grey",
+                fontSize: 14,
+                fontWeight: 600
+            }}>{props.cartProduct.quantity}x</span> {props.cartProduct.price}€</h4>
         </div>
     </div>
         )

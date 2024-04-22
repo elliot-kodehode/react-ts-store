@@ -2,9 +2,7 @@
     width: 80%;
     display: grid;
     justify-content: center;
-    padding-top: 104px;
-    padding-bottom: 24px;
-    /*grid-template-columns: repeat(4, 1fr);*/
+    padding: 24px 0;
     grid-template-columns: repeat(auto-fit, minmax(380px, 25%));
-    row-gap: 60px;
+    row-gap: 30px;
 }
