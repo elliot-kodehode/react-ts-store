@@ -35,7 +35,7 @@ export default function Root() {
                 setLoading(true)
                 const response = await axios("https://fakestoreapi.com/products");
                 const data = await response.data;
-                const updatedData = data?.map(p => ({...p, quantity: 0}))
+                const updatedData: Product[] = data?.map((p: Product) => ({...p, quantity: 0}))
                 setProducts(updatedData);
                 console.log(updatedData)
                 setLoading(false)
@@ -48,10 +48,10 @@ export default function Root() {
     }, [])
     
     const addToCart = (product: Product) => {
-        const productId = cart.some(newProduct => newProduct.id === product.id);
+        const productId: boolean = cart.some(newProduct => newProduct.id === product.id);
             productId 
                 ? incrementAmount(product)
-                : setCart(prevCart => [...prevCart, { ...product, quantity: 1 }]);
+                : setCart((prevCart: Product[]) => [...prevCart, { ...product, quantity: 1 }]);
     };
     
     const incrementAmount = (product: Product) => {

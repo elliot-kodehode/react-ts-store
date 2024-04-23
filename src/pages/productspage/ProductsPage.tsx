@@ -6,7 +6,6 @@ import {Product} from "../../types/types.ts";
 
 
 export default function Products() {
-
     const {products } = useContext(PageContext)!;
 
     return (

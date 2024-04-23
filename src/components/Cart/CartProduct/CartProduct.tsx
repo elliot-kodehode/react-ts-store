@@ -10,7 +10,6 @@ const cartProduct = (props : Props) => {
     
     return (
     <div key={props.cartProduct.id} className={styles.product}>
-        <AmountPicker cartProduct={props.cartProduct} />
         <img src={props.cartProduct.image} alt={props.cartProduct.title} style={{
             width: 50, height: 50, objectFit: "contain"
         }}/>
@@ -26,6 +25,7 @@ const cartProduct = (props : Props) => {
                 fontWeight: 600
             }}>{props.cartProduct.quantity}x</span> {props.cartProduct.price}€</h4>
         </div>
+        <AmountPicker cartProduct={props.cartProduct} />
     </div>
         )
 }

@@ -43,7 +43,6 @@ export default function SingleProduct() {
                             <button className={styles.cartBtn}
                                     onClick={handleAddToCart}
                             >Add to cart</button>
-                            <button className={styles.wishBtn}><span style={{fontSize: 34}}>♡</span><p>Add to wishlist</p></button>
                         </div>
                         <p className={styles.info}>Standard delivery 3-5 working days</p>
                     </div>

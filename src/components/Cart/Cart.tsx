@@ -12,7 +12,7 @@ export default function Cart() {
         cart.forEach((cartProduct) => {
             totalPrice += cartProduct.price * cartProduct.quantity;
         });
-        setPrice(parseInt(totalPrice.toFixed(2)));
+        setPrice(Math.ceil(totalPrice * 100) / 100);
     }, [cart]);
 
     const handleClear = () => {
@@ -43,7 +43,7 @@ export default function Cart() {
             </div>
             <p className={styles.shipping}>Shipping will be calculated at checkout.</p>
             <div className={styles.cartActions}>
-                <button className={styles.checkout} onClick={handleClear}>Checkout</button>
+                <button className={styles.checkout} onClick={handleClear} >Checkout</button>
                 <button className={styles.clearCart} onClick={handleDisplay}>Continue shopping</button>
             </div>
         </div>

@@ -28,7 +28,6 @@ export const ProductCard = (props: Props) => {
                         objectFit: "contain"
                     }} className={styles.productImage}/>
                 </Link>
-                <button className={styles.favouriteBtn}>♡</button>
             </div>
             <Link to={`./${props.product.id}`} className={styles.productLink}>
                 <h3>{props.product.title}</h3>

@@ -6,7 +6,7 @@ export default function HomePage () {
         <div className={styles.header}>
             <div className={styles.headerContent}>
             <h1>React Mock Store</h1>
-            <NavLink to={"./products"}>Browse Products</NavLink>
+            <NavLink to={"./products"} className={styles.productsLink}>Browse Products</NavLink>
             </div>
         </div>
     )
