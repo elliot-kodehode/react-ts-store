@@ -1,6 +1,6 @@
 <h1>React TS Store</h1>
 This project is a small mockup store built in React to practice typescript, <br>
-featuring a local storage saved cart functionality.
+featuring a cart saved in local storage.
 <br><br>
 
 <h2>Features</h2>
